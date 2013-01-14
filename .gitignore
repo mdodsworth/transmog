@@ -1,0 +1,15 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+*.un~
+
+.gradle/
+
+# idea project files
+*.iws
+*.ipr
+*.iml
