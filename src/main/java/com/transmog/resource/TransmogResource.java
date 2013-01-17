@@ -1,5 +1,6 @@
 package com.transmog.resource;
 
+import com.sun.jersey.api.ParamException;
 import com.transmog.model.Result;
 import com.google.common.base.Optional;
 import com.yammer.metrics.annotation.Timed;
@@ -27,7 +28,11 @@ public class TransmogResource {
 
     @GET
     @Timed
-    public Result transmogrify(@QueryParam("unit") Optional<String> unit) {
-        return new Result(counter.incrementAndGet(), String.format(template, unit.or(defaultUnit)));
+    public Result transmogrify(@QueryParam("value") Optional<Long> value) {
+        if (!value.isPresent()) {
+            throw new ParamException.FormParamException(null, "value", null);
+        }
+
+        return new Result(counter.incrementAndGet(), String.format(template, value.or(0L)));
     }
 }
