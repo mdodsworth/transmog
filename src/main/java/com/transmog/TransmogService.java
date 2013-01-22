@@ -1,7 +1,7 @@
 package com.transmog;
 
 import com.transmog.health.TransmogHealthCheck;
-import com.transmog.resource.TransmogResource;
+import com.transmog.resources.TransmogResource;
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
