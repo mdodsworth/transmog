@@ -22,9 +22,7 @@ public class TransmogService extends Service<TransmogConfiguration> {
 
     @Override
     public void run(TransmogConfiguration configuration, Environment environment) {
-        String template = configuration.getTemplate();
-        String defaultName = configuration.getDefaultUnit();
-        environment.addResource(new TransmogResource(template, defaultName));
-        environment.addHealthCheck(new TransmogHealthCheck(template));
+        environment.addResource(new TransmogResource());
+        environment.addHealthCheck(new TransmogHealthCheck());
     }
 }

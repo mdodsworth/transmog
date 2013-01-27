@@ -6,11 +6,9 @@ import com.yammer.metrics.core.HealthCheck;
  * @author mdodsworth
  */
 public class TransmogHealthCheck extends HealthCheck {
-    private final String template;
 
-    public TransmogHealthCheck(String template) {
+    public TransmogHealthCheck() {
         super("transmog");
-        this.template = template;
     }
 
     @Override

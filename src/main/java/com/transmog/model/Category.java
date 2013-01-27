@@ -3,7 +3,7 @@ package com.transmog.model;
 /**
  * @author mdodsworth
  */
-public enum UnitCategory {
+public enum Category {
     FILE_SIZE,
     DISTANCE,
     TIME,

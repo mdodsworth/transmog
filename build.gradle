@@ -23,3 +23,7 @@ dependencies {
 run {
     args 'server', './transmog_service.yml'
 }
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '1.3'
+}

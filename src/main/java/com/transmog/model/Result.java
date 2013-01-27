@@ -8,28 +8,25 @@ import java.math.BigDecimal;
  * @author mdodsworth
  */
 @Immutable
-public class Result {
+public class Result<T> {
 
-    // TODO: is category necessary?
-    private final UnitCategory category;
-    private final BigDecimal value;
-    private final String unit;
+    private final BigDecimal inputValue;
+    private final Unit<T> inputUnit;
 
-    public Result(@Nonnull UnitCategory category, BigDecimal value, @Nonnull String unit) {
-        this.category = category;
-        this.value = value;
-        this.unit = unit;
+    public Result(@Nonnull BigDecimal inputValue, @Nonnull Unit<T> inputUnit) {
+        this.inputValue = inputValue;
+        this.inputUnit = inputUnit;
     }
 
-    public BigDecimal getValue() {
-        return value;
+    public BigDecimal getInputValue() {
+        return inputValue;
     }
 
-    public String getUnit() {
-        return unit;
+    public Unit<T> getInputUnit() {
+        return inputUnit;
     }
 
-    public UnitCategory getCategory() {
-        return category;
+    public Category getCategory() {
+        return inputUnit.getCategory();
     }
 }
