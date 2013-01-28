@@ -1,8 +1,10 @@
 package com.transmog.model;
 
+import com.google.common.collect.ImmutableList;
+
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.Immutable;
-import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * @author mdodsworth
@@ -10,23 +12,19 @@ import java.math.BigDecimal;
 @Immutable
 public class Result<T> {
 
-    private final BigDecimal inputValue;
-    private final Unit<T> inputUnit;
+    private final Measure<T> inputValue;
+    private final ImmutableList<Measure<T>> outputValues;
 
-    public Result(@Nonnull BigDecimal inputValue, @Nonnull Unit<T> inputUnit) {
+    public Result(@Nonnull Measure<T> inputValue, @Nonnull List<Measure<T>> outputValues) {
         this.inputValue = inputValue;
-        this.inputUnit = inputUnit;
+        this.outputValues = ImmutableList.copyOf(outputValues);
     }
 
-    public BigDecimal getInputValue() {
+    public Measure<T> getInputValue() {
         return inputValue;
     }
 
-    public Unit<T> getInputUnit() {
-        return inputUnit;
-    }
-
-    public Category getCategory() {
-        return inputUnit.getCategory();
+    public List<Measure<T>> getOutputValues() {
+        return outputValues;
     }
 }
